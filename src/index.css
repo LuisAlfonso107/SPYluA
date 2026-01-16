@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #00FFFF;
+    --secondary: #9C27B0;
+  }
+
+  body {
+    @apply bg-dark text-white font-rajdhani antialiased;
+    background: #0A0A0A;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar Cyberpunk */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1A1A1A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 5px;
+  }
+}
+
+@layer components {
+  .text-glow {
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .cyber-btn {
+    @apply px-6 py-3 font-orbitron font-bold tracking-wider uppercase transition-all duration-300;
+    background: linear-gradient(45deg, #1A1A1A, #0A0A0A);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cyber-btn:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    transform: translateY(-2px);
+  }
+  
+  .cyber-input {
+    @apply bg-dark-gray border-2 border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-3 font-rajdhani transition-all duration-300;
+    outline: none;
+  }
+}

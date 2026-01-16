@@ -1,0 +1,110 @@
+/* src/index.css - Añade esto al final */
+
+/* Variables de tema */
+:root {
+  --primary: #00FFFF;
+  --secondary: #9C27B0;
+  --accent: #00FF9D;
+}
+
+[data-theme="dark"] {
+  --primary: #3B82F6;
+  --secondary: #8B5CF6;
+  --accent: #10B981;
+}
+
+
+
+[data-theme="neon"] {
+  --primary: #FF00FF;
+  --secondary: #FFFF00;
+  --accent: #00FFFF;
+}
+
+/* Efectos específicos por tema */
+.theme-cyberpunk {
+  background: linear-gradient(45deg, #0A0A0A 0%, #1A1A1A 100%);
+}
+
+.theme-dark {
+  background: linear-gradient(45deg, #111827 0%, #1F2937 100%);
+}
+
+
+.theme-neon {
+  background: linear-gradient(45deg, #0A0A0A 0%, #1A0033 100%);
+}
+
+
+/* Efecto glitch para textos importantes */
+.text-glitch {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Grid cyberpunk de fondo */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Botones con efecto de carga */
+.btn-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 20%,
+    rgba(0, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  animation: loading 1.5s infinite;
+  transform: rotate(30deg);
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Tarjetas con borde animado */
+.card-glow {
+  position: relative;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+  border-radius: inherit;
+  z-index: -1;
+  animation: rotate-gradient 3s linear infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes rotate-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
