@@ -1,10 +1,11 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { motion, MotionProps } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
 interface CyberButtonProps extends MotionProps {
   children: ReactNode;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'success';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   disabled?: boolean;
@@ -18,7 +19,8 @@ interface CyberButtonProps extends MotionProps {
 
 export default function CyberButton({ 
   children, 
-  onClick, 
+  onClick,
+  type = 'button',
   variant = 'primary', 
   size = 'md',
   disabled = false,
@@ -86,6 +88,7 @@ export default function CyberButton({
 
   return (
     <motion.button
+      type={type}
       onClick={onClick}
       disabled={disabled || loading}
       whileHover={disabled ? {} : { scale: 1.02 }}

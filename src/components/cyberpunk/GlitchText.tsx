@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 interface GlitchTextProps {
@@ -83,7 +83,7 @@ export default function GlitchText({
         }}
       />
 
-      <style jsx>{`
+      <style>{`
         @keyframes glitch1 {
           0%, 90%, 100% { 
             transform: translate(-${glitch1}px, 0); 
